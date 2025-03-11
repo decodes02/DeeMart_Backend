@@ -1,9 +1,7 @@
 package com.decodes.eCom.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,8 +23,15 @@ public class Product {
     private String category;
     private String description;
     private BigDecimal price;
-    private int quantity;
-    private boolean available;
-    private Date date;
+    private int stockQuantity;
+    private boolean productAvailable;
+
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date releaseDate;
+
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageData;
 
 }
